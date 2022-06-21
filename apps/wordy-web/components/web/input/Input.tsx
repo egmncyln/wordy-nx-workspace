@@ -10,7 +10,7 @@ function Input(props) {
           {props.label}
         </label>
       )}
-      <input {...props} className={styles.input} />
+      <input {...props} className={styles.input} autoComplete="off" />
     </div>
   );
 }

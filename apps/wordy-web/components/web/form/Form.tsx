@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import styles from './Form.module.scss';
 import cn from 'classnames';
 
-function Form(props) {
+const Form = forwardRef((props: any, ref) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (typeof props.onSubmit === 'function') {
@@ -14,12 +14,16 @@ function Form(props) {
   return (
     <form
       {...props}
+      ref={ref}
+      autoComplete="off"
       className={cn(styles.form, props.className)}
       onSubmit={submitHandler}
     >
       {props.children}
     </form>
   );
-}
+});
+
+Form.displayName = 'Form';
 
 export default Form;
