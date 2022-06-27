@@ -6,8 +6,15 @@ import cn from 'classnames';
 const Form = forwardRef((props: any, ref) => {
   const submitHandler = (e) => {
     e.preventDefault();
-    if (typeof props.onSubmit === 'function') {
-      props.onSubmit(e);
+
+    if (e.target.elements && e.target.elements.length > 0) {
+      const isFormValid = Array.from(e.target.elements)
+        .filter((e) => e['name'])
+        .every((e) => e['validity']['valid']);
+
+      if (isFormValid && typeof props.onSubmit === 'function') {
+        props.onSubmit(e);
+      }
     }
   };
 
@@ -18,6 +25,7 @@ const Form = forwardRef((props: any, ref) => {
       autoComplete="off"
       className={cn(styles.form, props.className)}
       onSubmit={submitHandler}
+      noValidate
     >
       {props.children}
     </form>

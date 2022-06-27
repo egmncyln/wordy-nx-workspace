@@ -1,7 +1,3 @@
-import {
-  decryptString,
-  encryptString,
-} from '@wordy-nx-workspace/shared-util-encryption';
 import React, { useEffect, useRef, useState } from 'react';
 
 import Anchor from '../web/anchor/Anchor';
@@ -10,6 +6,11 @@ import Form from '../web/form/Form';
 import Input from '../web/input/Input';
 import Small from '../web/small/Small';
 
+// import {
+//   decryptString,
+//   encryptString,
+// } from '@wordy-nx-workspace/shared-util-encryption';
+
 enum PageTypes {
   Login,
   Signup,
@@ -17,12 +18,12 @@ enum PageTypes {
 
 // TODOEgemen: add validations to inputs
 function Authentication() {
-  useEffect(() => {
-    const e = encryptString('this is a loooonngggg string şŞöÖçÇğĞüÜiİ');
-    const d = decryptString(e);
-    console.log(e);
-    console.log(d);
-  }, []);
+  // useEffect(() => {
+  //   const e = encryptString('this is a loooonngggg string şŞöÖçÇğĞüÜiİ');
+  //   const d = decryptString(e);
+  //   console.log(e);
+  //   console.log(d);
+  // }, []);
 
   const [pageType, setPageType] = useState(PageTypes.Login);
 
@@ -53,43 +54,53 @@ function Authentication() {
   return (
     <Form ref={formEl} onSubmit={formSubmitHandler}>
       <Input
+        type="email"
         id={strEmail.toLowerCase()}
-        type="text"
+        name={strEmail.toLowerCase()}
         label={strEmail}
         placeholder={strEmail}
+        required
       />
       {isPageTypeSignup() && (
         <Input
+          type="text"
           className="mt-4"
           id={strName.toLowerCase()}
-          type="text"
+          name={strName.toLowerCase()}
           label={strName}
           placeholder={strName}
+          required
         />
       )}
       {isPageTypeSignup() && (
         <Input
+          type="text"
           className="mt-4"
           id={strSurname.toLowerCase()}
-          type="text"
+          name={strSurname.toLowerCase()}
           label={strSurname}
           placeholder={strSurname}
+          required
         />
       )}
       <Input
+        type="password"
         className="mt-4"
         id={strPassword.toLowerCase()}
-        type="password"
+        name={strPassword.toLowerCase()}
         label={strPassword}
         placeholder={strPasswordPlaceholder}
+        required
       />
       {isPageTypeSignup() && (
         <Input
+          type="password"
           className="mt-4"
           id={`confirm-${strPassword.toLowerCase()}`}
-          type="password"
+          name={`confirm-${strPassword.toLowerCase()}`}
           label={`Confirm ${strPassword.toLowerCase()}`}
           placeholder={strPasswordPlaceholder}
+          required
         />
       )}
       <Button type="submit" color="default" className="w-full mt-6">
