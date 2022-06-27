@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "shared-util-encryption": "libs/shared/util/encryption",
     "wordy-api": "apps/wordy-api",
     "wordy-web": "apps/wordy-web",
     "wordy-web-e2e": "apps/wordy-web-e2e"

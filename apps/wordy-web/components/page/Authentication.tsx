@@ -1,4 +1,8 @@
-import React, { useRef, useState } from 'react';
+import {
+  decryptString,
+  encryptString,
+} from '@wordy-nx-workspace/shared-util-encryption';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Anchor from '../web/anchor/Anchor';
 import Button from '../web/button/Button';
@@ -13,6 +17,13 @@ enum PageTypes {
 
 // TODOEgemen: add validations to inputs
 function Authentication() {
+  useEffect(() => {
+    const e = encryptString('this is a loooonngggg string şŞöÖçÇğĞüÜiİ');
+    const d = decryptString(e);
+    console.log(e);
+    console.log(d);
+  }, []);
+
   const [pageType, setPageType] = useState(PageTypes.Login);
 
   const formEl = useRef(null);

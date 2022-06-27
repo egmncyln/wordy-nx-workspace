@@ -1,0 +1,9 @@
+{
+  "name": "@wordy-nx-workspace/shared-util-encryption",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/base-64": "^1.0.0",
+    "@types/utf8": "^3.0.1"
+  }
+}
