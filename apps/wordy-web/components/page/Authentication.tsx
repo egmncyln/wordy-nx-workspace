@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import Anchor from '../web/anchor/Anchor';
 import Button from '../web/button/Button';
@@ -16,15 +16,7 @@ enum PageTypes {
   Signup,
 }
 
-// TODOEgemen: add validations to inputs
 function Authentication() {
-  // useEffect(() => {
-  //   const e = encryptString('this is a loooonngggg string şŞöÖçÇğĞüÜiİ');
-  //   const d = decryptString(e);
-  //   console.log(e);
-  //   console.log(d);
-  // }, []);
-
   const [pageType, setPageType] = useState(PageTypes.Login);
 
   const formEl = useRef(null);
@@ -69,6 +61,8 @@ function Authentication() {
           name={strName.toLowerCase()}
           label={strName}
           placeholder={strName}
+          minLength={3}
+          maxLength={50}
           required
         />
       )}
@@ -80,6 +74,8 @@ function Authentication() {
           name={strSurname.toLowerCase()}
           label={strSurname}
           placeholder={strSurname}
+          minLength={3}
+          maxLength={50}
           required
         />
       )}
@@ -90,6 +86,8 @@ function Authentication() {
         name={strPassword.toLowerCase()}
         label={strPassword}
         placeholder={strPasswordPlaceholder}
+        minLength={8}
+        maxLength={8}
         required
       />
       {isPageTypeSignup() && (
@@ -100,6 +98,8 @@ function Authentication() {
           name={`confirm-${strPassword.toLowerCase()}`}
           label={`Confirm ${strPassword.toLowerCase()}`}
           placeholder={strPasswordPlaceholder}
+          minLength={8}
+          maxLength={8}
           required
         />
       )}
