@@ -7,7 +7,7 @@ const withNx = require('@nrwl/next/plugins/with-nx');
 const nextConfig = {
   reactStrictMode: true,
   i18n: {
-    locales: ['en'],
+    locales: ['en', 'tr'],
     defaultLocale: 'en',
   },
   nx: {
