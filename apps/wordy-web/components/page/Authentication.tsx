@@ -6,10 +6,13 @@ import Form from '../web/form/Form';
 import Input from '../web/input/Input';
 import Small from '../web/small/Small';
 
-// import {
-//   decryptString,
-//   encryptString,
-// } from '@wordy-nx-workspace/shared-util-encryption';
+import {
+  encryptString,
+  DTOAuthentication,
+  isNullOrEmptyArray,
+} from '@wordy-nx-workspace/wordy';
+
+// import apiInvoker from '../../api/api-invoker';
 
 enum PageTypes {
   Login,
@@ -23,8 +26,7 @@ function Authentication() {
 
   const strPassword = 'Password';
   const strEmail = 'E-mail';
-  const strName = 'Name';
-  const strSurname = 'Surname';
+  const strFullName = 'Full Name';
   const strPasswordPlaceholder = '•••••••••';
 
   const strLogin = 'Login';
@@ -32,7 +34,36 @@ function Authentication() {
 
   const isPageTypeSignup = () => pageType === PageTypes.Signup;
 
-  const formSubmitHandler = (e) => console.log(e);
+  const formSubmitHandler = async (e) => {
+    const formValues: string[] = Array.from(e.target.elements)
+      .filter((e) => e['name'])
+      .map((e) => e['value']);
+
+    if (!isNullOrEmptyArray(formValues)) {
+      let dtoAuthentication: DTOAuthentication;
+      if (isPageTypeSignup()) {
+        const [email, fullName, password, confirmPassword] = formValues;
+        dtoAuthentication = {
+          email: encryptString(email),
+          fullName: encryptString(fullName),
+          password: encryptString(password),
+          confirmPassword: encryptString(confirmPassword),
+        };
+      } else {
+        const [email, password] = formValues;
+        dtoAuthentication = {
+          email: encryptString(email),
+          password: encryptString(password),
+        };
+      }
+      console.log(dtoAuthentication);
+      // const response = await apiInvoker.post(
+      //   'http://localhost:3333/api',
+      //   dtoAuthentication
+      // );
+      // console.log(response);
+    }
+  };
 
   const anchorClickHandler = () => {
     if (formEl) {
@@ -57,23 +88,10 @@ function Authentication() {
         <Input
           type="text"
           className="mt-4"
-          id={strName.toLowerCase()}
-          name={strName.toLowerCase()}
-          label={strName}
-          placeholder={strName}
-          minLength={3}
-          maxLength={50}
-          required
-        />
-      )}
-      {isPageTypeSignup() && (
-        <Input
-          type="text"
-          className="mt-4"
-          id={strSurname.toLowerCase()}
-          name={strSurname.toLowerCase()}
-          label={strSurname}
-          placeholder={strSurname}
+          id="full-name"
+          name="full-name"
+          label={strFullName}
+          placeholder={strFullName}
           minLength={3}
           maxLength={50}
           required
@@ -86,8 +104,8 @@ function Authentication() {
         name={strPassword.toLowerCase()}
         label={strPassword}
         placeholder={strPasswordPlaceholder}
-        minLength={8}
-        maxLength={8}
+        minLength={10}
+        maxLength={10}
         required
       />
       {isPageTypeSignup() && (
@@ -98,8 +116,8 @@ function Authentication() {
           name={`confirm-${strPassword.toLowerCase()}`}
           label={`Confirm ${strPassword.toLowerCase()}`}
           placeholder={strPasswordPlaceholder}
-          minLength={8}
-          maxLength={8}
+          minLength={10}
+          maxLength={10}
           required
         />
       )}

@@ -15,9 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@wordy-nx-workspace/shared-util-encryption": [
-        "libs/shared/util/encryption/src/index.ts"
-      ]
+      "@wordy-nx-workspace/wordy": ["libs/wordy/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
