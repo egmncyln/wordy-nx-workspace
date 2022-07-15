@@ -1,19 +1,20 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
+import application from './app/application';
 
-import * as express from 'express';
+const signalListener = async () => {
+  process.exit(0);
+};
 
-const app = express();
+const initializeServer = async () => {
+  process.on('SIGTERM', signalListener);
+  process.on('SIGINT', signalListener);
+  process.on('SIGQUIT', signalListener);
+  process.on('SIGHUP', signalListener);
 
-app.get('/api', (req, res) => {
-  console.log(req.body);
-  res.send({ message: 'Welcome to wordy-api!' });
-});
+  const PORT = process.env.PORT || 3001;
 
-const port = process.env.port || 3333;
-const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
-});
-server.on('error', console.error);
+  application.listen(PORT, () => {
+    console.log(`Port: ${PORT}, env: ${application.settings.env}`);
+  });
+};
+
+initializeServer();
