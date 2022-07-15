@@ -4,8 +4,7 @@ import * as cors from 'cors';
 import * as compression from 'compression';
 
 import helmet from 'helmet';
-import initialRoute from '../routes/initial.route';
-import authRoute from '../routes/auth.route';
+import authenticationRoutes from '../routes/authentication';
 
 import { checkRequest } from '../middlewares/middlewares';
 import { corsOptions } from '../helpers/cors-options';
@@ -17,7 +16,6 @@ application.use(compression());
 application.use(helmet());
 application.use(bodyParser.json());
 application.use(checkRequest);
-application.use(initialRoute);
-application.use(authRoute);
+application.use(authenticationRoutes);
 
 export default application;
