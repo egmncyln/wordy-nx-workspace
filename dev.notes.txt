@@ -1,0 +1,8 @@
+*code fe unit tests
+*code fe integration tests
+*code fe e2e tests
+*code be unit tests
+*code be integration tests
+*add i18n support
+*add theme support
+*add components to storybook
