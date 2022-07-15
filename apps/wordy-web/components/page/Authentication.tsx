@@ -6,13 +6,12 @@ import Form from '../web/form/Form';
 import Input from '../web/input/Input';
 import Small from '../web/small/Small';
 
-import {
-  encryptString,
-  DTOAuthentication,
-  isNullOrEmptyArray,
-} from '@wordy-nx-workspace/wordy';
+import { DTOAuthentication } from '../../libs/data-transfer-objects';
+import { encryptString } from '../../libs/encryption-utils';
+import { isNullOrEmptyArray } from '../../libs/null-check-utils';
 
-// import apiInvoker from '../../api/api-invoker';
+// TODOEgemen: api invoker must be more generic. example: invokeApi(httpMethod, httpUrl, requestBody)
+import apiInvoker from '../../api/api-invoker';
 
 enum PageTypes {
   Login,
@@ -56,12 +55,12 @@ function Authentication() {
           password: encryptString(password),
         };
       }
-      console.log(dtoAuthentication);
-      // const response = await apiInvoker.post(
-      //   'http://localhost:3333/api',
-      //   dtoAuthentication
-      // );
-      // console.log(response);
+      const response = await apiInvoker.post(
+        'http://localhost:3001/login',
+        dtoAuthentication
+      );
+      console.log(response);
+      // TODOEgemen: route names, http methods must be read from libs
     }
   };
 

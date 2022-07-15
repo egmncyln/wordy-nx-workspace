@@ -1,13 +1,26 @@
 import { Request, Response } from 'express';
 
-export const login = (req: Request, res: Response) => {
-  res.status(200).json({ message: 'Here login route', data: req.body });
+import { DTOAuthentication } from '../libs/data-transfer-objects';
+import { decryptString } from '../libs/encryption-utils';
+
+export const login = (req: Request<unknown, unknown, DTOAuthentication>, res: Response) => {
+  const data: DTOAuthentication = {
+    email: decryptString(req.body.email),
+    password: decryptString(req.body.password),
+  };
+  res.status(200).json({ message: 'Here login route', data });
 };
 
-export const signup = (req: Request, res: Response) => {
-  res.status(200).json({ message: 'Here signup route', data: req.body });
+export const signup = (req: Request<unknown, unknown, DTOAuthentication>, res: Response) => {
+  const data: DTOAuthentication = {
+    email: decryptString(req.body.email),
+    fullName: decryptString(req.body.fullName),
+    password: decryptString(req.body.password),
+    confirmPassword: decryptString(req.body.confirmPassword)
+  };
+  res.status(200).json({ message: 'Here signup route', data });
 };
 
 export const logout = (req: Request, res: Response) => {
-  res.status(200).json({ message: 'Here logout route', data: req.body });
+  res.status(200).json({ message: 'Here logout route' });
 };
