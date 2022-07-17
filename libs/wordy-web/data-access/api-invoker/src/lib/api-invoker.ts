@@ -5,7 +5,7 @@ enum HttpMethods {
   DELETE = "DELETE",
 }
 
-const apiInvoker = {
+export const apiInvoker = {
   post: async (url: string, body: object) => {
     // Default options are marked with *
     const response = await fetch(url, {
@@ -24,5 +24,3 @@ const apiInvoker = {
     return response.json(); // parses JSON response into native JavaScript objects
   }
 };
-
-export default apiInvoker;

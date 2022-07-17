@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/wordy-web/data-access/api-invoker/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/wordy-web/data-access/api-invoker",
+        "main": "libs/wordy-web/data-access/api-invoker/src/index.ts",
+        "tsConfig": "libs/wordy-web/data-access/api-invoker/tsconfig.lib.json",
+        "assets": ["libs/wordy-web/data-access/api-invoker/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/wordy-web/data-access/api-invoker/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/wordy-web/data-access/api-invoker"],
+      "options": {
+        "jestConfig": "libs/wordy-web/data-access/api-invoker/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

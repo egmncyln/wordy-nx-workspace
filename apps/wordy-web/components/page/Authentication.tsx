@@ -11,7 +11,7 @@ import { encryptString } from '../../libs/encryption-utils';
 import { isNullOrEmptyArray } from '../../libs/null-check-utils';
 
 // TODOEgemen: api invoker must be more generic. example: invokeApi(httpMethod, httpUrl, requestBody)
-import apiInvoker from '../../api/api-invoker';
+import { apiInvoker } from '@wordy-nx-workspace/wordy-web/data-access/api-invoker';
 
 enum PageTypes {
   Login,
