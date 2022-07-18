@@ -5,34 +5,24 @@
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/shared/data/data-transfer-objects",
         "main": "libs/shared/data/data-transfer-objects/src/index.ts",
         "tsConfig": "libs/shared/data/data-transfer-objects/tsconfig.lib.json",
-        "assets": [
-          "libs/shared/data/data-transfer-objects/*.md"
-        ]
+        "assets": ["libs/shared/data/data-transfer-objects/*.md"]
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/shared/data/data-transfer-objects/**/*.ts"
-        ]
+        "lintFilePatterns": ["libs/shared/data/data-transfer-objects/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/shared/data/data-transfer-objects"
-      ],
+      "outputs": ["coverage/libs/shared/data/data-transfer-objects"],
       "options": {
         "jestConfig": "libs/shared/data/data-transfer-objects/jest.config.ts",
         "passWithNoTests": true

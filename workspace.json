@@ -5,7 +5,6 @@
     "shared-data-data-transfer-objects": "libs/shared/data/data-transfer-objects",
     "shared-util-cryptology": "libs/shared/util/cryptology",
     "shared-util-null-checking": "libs/shared/util/null-checking",
-    "wordy": "libs/wordy",
     "wordy-api": "apps/wordy-api",
     "wordy-web": "apps/wordy-web",
     "wordy-web-data-api-invoker": "libs/wordy-web/data/api-invoker",

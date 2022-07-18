@@ -10,10 +10,7 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -27,16 +24,10 @@
       "@wordy-nx-workspace/shared/util/null-checking": [
         "libs/shared/util/null-checking/src/index.ts"
       ],
-      "@wordy-nx-workspace/wordy": [
-        "libs/wordy/src/index.ts"
-      ],
       "@wordy-nx-workspace/wordy-web/data/api-invoker": [
         "libs/wordy-web/data/api-invoker/src/index.ts"
       ]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
