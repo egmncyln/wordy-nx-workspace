@@ -2,13 +2,13 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "shared-data-access-data-transfer-objects": "libs/shared/data-access/data-transfer-objects",
+    "shared-data-data-transfer-objects": "libs/shared/data/data-transfer-objects",
     "shared-util-cryptology": "libs/shared/util/cryptology",
     "shared-util-null-checking": "libs/shared/util/null-checking",
     "wordy": "libs/wordy",
     "wordy-api": "apps/wordy-api",
     "wordy-web": "apps/wordy-web",
-    "wordy-web-data-access-api-invoker": "libs/wordy-web/data-access/api-invoker",
+    "wordy-web-data-api-invoker": "libs/wordy-web/data/api-invoker",
     "wordy-web-e2e": "apps/wordy-web-e2e"
   }
 }

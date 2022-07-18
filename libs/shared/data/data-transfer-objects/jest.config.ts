@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'shared-data-access-data-transfer-objects',
+  displayName: 'shared-data-data-transfer-objects',
   preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -12,5 +12,5 @@ export default {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory:
-    '../../../../coverage/libs/shared/data-access/data-transfer-objects',
+    '../../../../coverage/libs/shared/data/data-transfer-objects',
 };
