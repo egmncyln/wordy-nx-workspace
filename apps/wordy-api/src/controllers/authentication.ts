@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { DTOAuthentication } from '../libs/data-transfer-objects';
+import { DTOAuthentication } from '@wordy-nx-workspace/shared/data-access/data-transfer-objects';
 import { decryptString } from '../libs/encryption-utils';
 
 export const login = (req: Request<unknown, unknown, DTOAuthentication>, res: Response) => {

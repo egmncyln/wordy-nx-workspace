@@ -6,7 +6,7 @@ import Form from '../web/form/Form';
 import Input from '../web/input/Input';
 import Small from '../web/small/Small';
 
-import { DTOAuthentication } from '../../libs/data-transfer-objects';
+import { DTOAuthentication } from '@wordy-nx-workspace/shared/data-access/data-transfer-objects';
 import { encryptString } from '../../libs/encryption-utils';
 import { isNullOrEmptyArray } from '../../libs/null-check-utils';
 

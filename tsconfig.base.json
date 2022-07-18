@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@wordy-nx-workspace/shared/data-access/data-transfer-objects": [
+        "libs/shared/data-access/data-transfer-objects/src/index.ts"
+      ],
       "@wordy-nx-workspace/wordy": ["libs/wordy/src/index.ts"],
       "@wordy-nx-workspace/wordy-web/data-access/api-invoker": [
         "libs/wordy-web/data-access/api-invoker/src/index.ts"
