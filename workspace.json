@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "shared-data-access-data-transfer-objects": "libs/shared/data-access/data-transfer-objects",
+    "shared-util-cryptology": "libs/shared/util/cryptology",
     "wordy": "libs/wordy",
     "wordy-api": "apps/wordy-api",
     "wordy-web": "apps/wordy-web",

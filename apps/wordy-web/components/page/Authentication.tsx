@@ -7,7 +7,7 @@ import Input from '../web/input/Input';
 import Small from '../web/small/Small';
 
 import { DTOAuthentication } from '@wordy-nx-workspace/shared/data-access/data-transfer-objects';
-import { encryptString } from '../../libs/encryption-utils';
+import { encryptString } from '@wordy-nx-workspace/shared/util/cryptology';
 import { isNullOrEmptyArray } from '../../libs/null-check-utils';
 
 // TODOEgemen: api invoker must be more generic. example: invokeApi(httpMethod, httpUrl, requestBody)
