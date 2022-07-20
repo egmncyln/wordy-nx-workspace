@@ -4,7 +4,7 @@ import Anchor from '../web/anchor/Anchor';
 import Button from '../web/button/Button';
 import Form from '../web/form/Form';
 import Input from '../web/input/Input';
-import Small from '../web/small/Small';
+import { Small } from '@wordy-nx-workspace/wordy-web/ui';
 
 import { encryptString } from '@wordy-nx-workspace/shared/util/cryptology';
 import { isNullOrEmptyArray } from '@wordy-nx-workspace/shared/util/null-checking';

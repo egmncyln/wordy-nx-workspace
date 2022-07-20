@@ -8,6 +8,7 @@
     "wordy-api": "apps/wordy-api",
     "wordy-web": "apps/wordy-web",
     "wordy-web-data-api-invoker": "libs/wordy-web/data/api-invoker",
-    "wordy-web-e2e": "apps/wordy-web-e2e"
+    "wordy-web-e2e": "apps/wordy-web-e2e",
+    "wordy-web-ui": "libs/wordy-web/ui"
   }
 }
