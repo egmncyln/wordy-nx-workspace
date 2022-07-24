@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { BaseSyntheticEvent, Ref, useRef, useState } from 'react';
 
 import { Anchor } from '@wordy-nx-workspace/wordy-web/ui';
 import { Button } from '@wordy-nx-workspace/wordy-web/ui';
@@ -18,10 +18,10 @@ enum PageTypes {
   Signup,
 }
 
-function Authentication() {
+export function Authentication() {
   const [pageType, setPageType] = useState(PageTypes.Login);
 
-  const formEl = useRef(null);
+  const formEl: Ref<HTMLFormElement> = useRef(null);
 
   const strPassword = 'Password';
   const strEmail = 'E-mail';
@@ -33,10 +33,10 @@ function Authentication() {
 
   const isPageTypeSignup = () => pageType === PageTypes.Signup;
 
-  const formSubmitHandler = async (e) => {
+  const formSubmitHandler = async (e: BaseSyntheticEvent) => {
     const formValues: string[] = Array.from(e.target.elements)
-      .filter((e) => e['name'])
-      .map((e) => e['value']);
+      .filter((e: any) => e['name'])
+      .map((e: any) => e['value']);
 
     if (!isNullOrEmptyArray(formValues)) {
       let dtoAuthentication: DTOAuthentication;
@@ -65,14 +65,13 @@ function Authentication() {
   };
 
   const anchorClickHandler = () => {
-    if (formEl) {
+    if (formEl && formEl.current) {
       formEl.current.reset();
     }
     isPageTypeSignup()
       ? setPageType(PageTypes.Login)
       : setPageType(PageTypes.Signup);
   };
-
   return (
     <Form ref={formEl} onSubmit={formSubmitHandler}>
       <Input

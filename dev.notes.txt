@@ -6,3 +6,4 @@
 *add i18n support
 *add theme support
 *add components to storybook
+*handle network errors

@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
-
-import Authentication from '../components/page/Authentication';
+import { Authentication } from '@wordy-nx-workspace/wordy-web/feature';
 
 const Index: NextPage = () => {
   return <Authentication />;

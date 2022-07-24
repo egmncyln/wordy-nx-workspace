@@ -27,6 +27,9 @@
       "@wordy-nx-workspace/wordy-web/data/api-invoker": [
         "libs/wordy-web/data/api-invoker/src/index.ts"
       ],
+      "@wordy-nx-workspace/wordy-web/feature": [
+        "libs/wordy-web/feature/src/index.ts"
+      ],
       "@wordy-nx-workspace/wordy-web/ui": ["libs/wordy-web/ui/src/index.ts"]
     }
   },

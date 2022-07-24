@@ -9,6 +9,7 @@
     "wordy-web": "apps/wordy-web",
     "wordy-web-data-api-invoker": "libs/wordy-web/data/api-invoker",
     "wordy-web-e2e": "apps/wordy-web-e2e",
+    "wordy-web-feature": "libs/wordy-web/feature",
     "wordy-web-ui": "libs/wordy-web/ui"
   }
 }
