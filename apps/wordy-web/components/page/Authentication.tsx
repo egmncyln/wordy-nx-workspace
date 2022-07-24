@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 
-import Anchor from '../web/anchor/Anchor';
-import Button from '../web/button/Button';
-import Form from '../web/form/Form';
-import Input from '../web/input/Input';
+import { Anchor } from '@wordy-nx-workspace/wordy-web/ui';
+import { Button } from '@wordy-nx-workspace/wordy-web/ui';
+import { Form } from '@wordy-nx-workspace/wordy-web/ui';
+import { Input } from '@wordy-nx-workspace/wordy-web/ui';
 import { Small } from '@wordy-nx-workspace/wordy-web/ui';
 
 import { encryptString } from '@wordy-nx-workspace/shared/util/cryptology';
