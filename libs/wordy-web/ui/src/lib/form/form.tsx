@@ -16,9 +16,10 @@ export const Form = forwardRef(
       e.preventDefault();
 
       if (e.target.elements && e.target.elements.length > 0) {
-        const isFormValid = Array.from(e.target.elements)
-          .filter((e: any) => e['name'])
-          .every((e: any) => e['validity']['valid']);
+        type FormElements = { name: string; validity: { valid: boolean } };
+        const isFormValid = Array.from<FormElements>(e.target.elements)
+          .filter((e) => e.name)
+          .every((e) => e.validity.valid);
 
         if (isFormValid && typeof props.onSubmit === 'function') {
           props.onSubmit(e);

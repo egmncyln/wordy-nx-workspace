@@ -34,9 +34,10 @@ export function Authentication() {
   const isPageTypeSignup = () => pageType === PageTypes.Signup;
 
   const formSubmitHandler = async (e: BaseSyntheticEvent) => {
-    const formValues: string[] = Array.from(e.target.elements)
-      .filter((e: any) => e['name'])
-      .map((e: any) => e['value']);
+    type FormElements = { name: string; value: string };
+    const formValues: string[] = Array.from<FormElements>(e.target.elements)
+      .filter((e) => e.name)
+      .map((e) => e.value);
 
     if (!isNullOrEmptyArray(formValues)) {
       let dtoAuthentication: DTOAuthentication;
