@@ -10,8 +10,10 @@ import { encryptString } from '@wordy-nx-workspace/shared/util/cryptology';
 import { isNullOrEmptyArray } from '@wordy-nx-workspace/shared/util/null-checking';
 import { DTOAuthentication } from '@wordy-nx-workspace/shared/data/data-transfer-objects';
 
-// TODOEgemen: api invoker must be more generic. example: invokeApi(httpMethod, httpUrl, requestBody)
-import { apiInvoker } from '@wordy-nx-workspace/wordy-web/data/api-invoker';
+import {
+  invokeApi,
+  HttpMethods,
+} from '@wordy-nx-workspace/wordy-web/data/api-invoker';
 
 enum PageTypes {
   Login,
@@ -56,8 +58,9 @@ export function Authentication() {
           password: encryptString(password),
         };
       }
-      const response = await apiInvoker.post(
+      const response = await invokeApi(
         'http://localhost:3001/login',
+        HttpMethods.POST,
         dtoAuthentication
       );
       console.log(response);

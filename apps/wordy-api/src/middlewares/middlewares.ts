@@ -1,4 +1,5 @@
 
+import { isNullOrEmptyObject } from '@wordy-nx-workspace/shared/util/null-checking';
 import { Request, Response, NextFunction } from 'express';
 
 export const checkRequest = (
@@ -8,7 +9,7 @@ export const checkRequest = (
 ) => {
   if (['GET', 'OPTIONS'].includes(req.method)) {
     next();
-  } else if (Object.keys(req.body).length > 0) {
+  } else if (!isNullOrEmptyObject(req.body)) {
     next();
   } else {
     res.status(400).json({ message: `Please put an object to your request body` });

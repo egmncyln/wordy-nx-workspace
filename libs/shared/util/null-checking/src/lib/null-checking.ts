@@ -20,30 +20,31 @@ export function isUndefined<T>(obj: T): boolean { return obj === undefined; }
 
 /**
  * Checks whether given object is null or undefined
- * 
+ *
  * @export
- * @param {object} obj
+ * @template T
+ * @param {T} obj
  * @return {*}  {boolean}
  */
-export const isNullOrUndefined = (obj: object): boolean => isNull(obj) || isUndefined(obj);
+export function isNullOrUndefined<T>(obj: T): boolean { return isNull(obj) || isUndefined(obj); }
 
 /**
  * Checks whether given string is null, undefined or emtpy
- * 
- * @export 
- * @param {string} str
- * @return {*}  {boolean}
- */
-export const isNullOrEmptyString = (str: string): boolean => isNull(str) || isUndefined(str) || str.length === 0;
-
-/**
- * Checks whether given string is null, undefined, empty or contains empty strings
- * 
+ *
  * @export
  * @param {string} str
  * @return {*}  {boolean}
  */
-export const isNullOrWhiteSpace = (str: string): boolean => isNull(str) || isUndefined(str) || str.trim().length === 0;
+export function isNullOrEmptyString(str: string): boolean { return isNullOrUndefined(str) || str.length === 0; }
+
+/**
+ * Checks whether given string is null, undefined, empty or consists of empty strings
+ *
+ * @export
+ * @param {string} str
+ * @return {*}  {boolean}
+ */
+export function isNullOrWhiteSpace(str: string): boolean { return isNullOrUndefined(str) || str.trim().length === 0; }
 
 /**
  * Checks whether given array is null, undefined or empty
@@ -53,4 +54,14 @@ export const isNullOrWhiteSpace = (str: string): boolean => isNull(str) || isUnd
  * @param {T[]} arr
  * @return {*}  {boolean}
  */
-export function isNullOrEmptyArray<T>(arr: T[]): boolean { return isNull(arr) || isUndefined(arr) || arr.length === 0; }
+export function isNullOrEmptyArray<T>(arr: T[]): boolean { return isNullOrUndefined(arr) || arr.length === 0; }
+
+/**
+ * Checks whether given object is null, undefined or empty
+ *
+ * @export
+ * @template T
+ * @param {T} obj
+ * @return {*} 
+ */
+export function isNullOrEmptyObject<T>(obj: T) { return isNullOrUndefined(obj) || Object.keys(obj).length === 0; }
