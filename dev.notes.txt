@@ -7,3 +7,5 @@
 *add theme support
 *add components to storybook
 *handle network errors
+*add analytics integration
+*add linting scripts
