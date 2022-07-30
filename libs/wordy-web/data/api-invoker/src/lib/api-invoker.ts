@@ -1,11 +1,5 @@
+import { HttpMethods } from '@wordy-nx-workspace/shared/data/communication';
 import { isNullOrEmptyObject } from '@wordy-nx-workspace/shared/util/null-checking';
-
-export enum HttpMethods {
-  GET = "GET",
-  POST = "POST",
-  PUT = "PUT",
-  DELETE = "DELETE",
-}
 
 export const invokeApi = async (url: string, method: HttpMethods, body?: object) => {
   // Default options are marked with *

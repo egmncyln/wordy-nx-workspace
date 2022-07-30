@@ -10,10 +10,8 @@ import { encryptString } from '@wordy-nx-workspace/shared/util/cryptology';
 import { isNullOrEmptyArray } from '@wordy-nx-workspace/shared/util/null-checking';
 import { DTOAuthentication } from '@wordy-nx-workspace/shared/data/data-transfer-objects';
 
-import {
-  invokeApi,
-  HttpMethods,
-} from '@wordy-nx-workspace/wordy-web/data/api-invoker';
+import { invokeApi } from '@wordy-nx-workspace/wordy-web/data/api-invoker';
+import { HttpMethods } from '@wordy-nx-workspace/shared/data/communication';
 
 enum PageTypes {
   Login,

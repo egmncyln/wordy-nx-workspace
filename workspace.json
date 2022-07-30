@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "shared-data-communication": "libs/shared/data/communication",
     "shared-data-data-transfer-objects": "libs/shared/data/data-transfer-objects",
     "shared-util-cryptology": "libs/shared/util/cryptology",
     "shared-util-null-checking": "libs/shared/util/null-checking",

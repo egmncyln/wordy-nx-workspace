@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@wordy-nx-workspace/shared/data/communication": [
+        "libs/shared/data/communication/src/index.ts"
+      ],
       "@wordy-nx-workspace/shared/data/data-transfer-objects": [
         "libs/shared/data/data-transfer-objects/src/index.ts"
       ],

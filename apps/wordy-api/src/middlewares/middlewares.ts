@@ -1,4 +1,5 @@
 
+import { HttpMethods } from '@wordy-nx-workspace/shared/data/communication';
 import { isNullOrEmptyObject } from '@wordy-nx-workspace/shared/util/null-checking';
 import { Request, Response, NextFunction } from 'express';
 
@@ -7,7 +8,7 @@ export const checkRequest = (
   res: Response,
   next: NextFunction
 ) => {
-  if (['GET', 'OPTIONS'].includes(req.method)) {
+  if ([HttpMethods.GET, HttpMethods.OPTIONS].includes(<HttpMethods>req.method)) {
     next();
   } else if (!isNullOrEmptyObject(req.body)) {
     next();
