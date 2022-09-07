@@ -57,11 +57,10 @@ export function isNullOrWhiteSpace(str: string): boolean { return isNullOrUndefi
 export function isNullOrEmptyArray<T>(arr: T[]): boolean { return isNullOrUndefined(arr) || arr.length === 0; }
 
 /**
- * Checks whether given object is null, undefined or empty
+ *
  *
  * @export
- * @template T
- * @param {T} obj
+ * @param {object} obj
  * @return {*} 
  */
-export function isNullOrEmptyObject<T>(obj: T) { return isNullOrUndefined(obj) || Object.keys(obj).length === 0; }
+export function isNullOrEmptyObject(obj: object) { return isNullOrUndefined(obj) || Object.keys(obj).length === 0; }
