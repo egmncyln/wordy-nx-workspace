@@ -9,3 +9,4 @@
 *handle network errors
 *add analytics integration
 *add linting scripts
+*add cms integration
