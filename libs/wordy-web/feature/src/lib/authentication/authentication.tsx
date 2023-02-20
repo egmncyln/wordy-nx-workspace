@@ -1,17 +1,17 @@
-import { BaseSyntheticEvent, Ref, useRef, useState } from 'react';
+import { BaseSyntheticEvent, Ref, useRef, useState } from "react";
 
-import { Anchor } from '@wordy-nx-workspace/wordy-web/ui';
-import { Button } from '@wordy-nx-workspace/wordy-web/ui';
-import { Form } from '@wordy-nx-workspace/wordy-web/ui';
-import { Input } from '@wordy-nx-workspace/wordy-web/ui';
-import { Small } from '@wordy-nx-workspace/wordy-web/ui';
+import { Anchor } from "@wordy-nx-workspace/wordy-web/ui";
+import { Button } from "@wordy-nx-workspace/wordy-web/ui";
+import { Form } from "@wordy-nx-workspace/wordy-web/ui";
+import { Input } from "@wordy-nx-workspace/wordy-web/ui";
+import { Small } from "@wordy-nx-workspace/wordy-web/ui";
 
-import { encryptString } from '@wordy-nx-workspace/shared/util/cryptology';
-import { isNullOrEmptyArray } from '@wordy-nx-workspace/shared/util/null-checking';
-import { DTOAuthentication } from '@wordy-nx-workspace/shared/data/data-transfer-objects';
+import { encryptString } from "@wordy-nx-workspace/shared/util/cryptology";
+import { isNullOrEmptyArray } from "@wordy-nx-workspace/shared/util/null-checking";
+import { DTOAuthentication } from "@wordy-nx-workspace/shared/data/data-transfer-objects";
 
-import { invokeApi } from '@wordy-nx-workspace/wordy-web/data/api-invoker';
-import { HttpMethods } from '@wordy-nx-workspace/shared/data/communication';
+import { invokeApi } from "@wordy-nx-workspace/wordy-web/data/api-invoker";
+import { HttpMethods } from "@wordy-nx-workspace/shared/data/communication";
 
 enum PageTypes {
   Login,
@@ -23,13 +23,13 @@ export function Authentication() {
 
   const formEl: Ref<HTMLFormElement> = useRef(null);
 
-  const strPassword = 'Password';
-  const strEmail = 'E-mail';
-  const strFullName = 'Full Name';
-  const strPasswordPlaceholder = '•••••••••';
+  const strPassword = "Password";
+  const strEmail = "E-mail";
+  const strFullName = "Full Name";
+  const strPasswordPlaceholder = "•••••••••";
 
-  const strLogin = 'Login';
-  const strSignup = 'Signup';
+  const strLogin = "Login";
+  const strSignup = "Signup";
 
   const isPageTypeSignup = () => pageType === PageTypes.Signup;
 
@@ -56,11 +56,7 @@ export function Authentication() {
           password: encryptString(password),
         };
       }
-      const response = await invokeApi(
-        'http://localhost:3001/login',
-        HttpMethods.POST,
-        dtoAuthentication
-      );
+      const response = await invokeApi("http://localhost:3001/login", HttpMethods.POST, dtoAuthentication);
       console.log(response);
       // TODOEgemen: route names, http methods must be read from libs
     }
@@ -70,9 +66,7 @@ export function Authentication() {
     if (formEl && formEl.current) {
       formEl.current.reset();
     }
-    isPageTypeSignup()
-      ? setPageType(PageTypes.Login)
-      : setPageType(PageTypes.Signup);
+    isPageTypeSignup() ? setPageType(PageTypes.Login) : setPageType(PageTypes.Signup);
   };
   return (
     <Form ref={formEl} onSubmit={formSubmitHandler}>
@@ -125,12 +119,8 @@ export function Authentication() {
         {isPageTypeSignup() ? strSignup : strLogin}
       </Button>
       <Small className="block text-center mt-4">
-        {isPageTypeSignup()
-          ? `Do you already have an account? `
-          : `Do you have not an account? `}
-        <Anchor onClick={anchorClickHandler}>
-          {isPageTypeSignup() ? strLogin : strSignup}
-        </Anchor>
+        {isPageTypeSignup() ? `Do you already have an account?` : `Do you have not an account?`}
+        <Anchor onClick={anchorClickHandler}>{isPageTypeSignup() ? strLogin : strSignup}</Anchor>
       </Small>
     </Form>
   );
